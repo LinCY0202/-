@@ -3,7 +3,7 @@
  * 
  * 
  */
-
+123
 const int servoPin = 9;   // 連接到第一個伺服馬達的腳位
 const int servoPin2 = 7;  // 連接到第二個伺服馬達的腳位
 
