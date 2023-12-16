@@ -3,6 +3,19 @@
  * 
  * 
  */
+void sendResponseToClient(int receivedInteger) {
+  // 判斷整數是否大於10，回傳對應的布爾值
+  bool response = (receivedInteger > 10);
+
+  // 使用UDP封包將布爾值回覆給客戶端
+  Udp.beginPacket(Udp.remoteIP(), Udp.remotePort());
+  Udp.write(reinterpret_cast<uint8_t*>(&response), sizeof(response));
+  Udp.endPacket();
+
+  Serial.print("回覆給客戶端: ");
+  Serial.println(response ? "true" : "false");
+}
+
 
 const int servoPin9 = 9;   // 連接到第一個伺服馬達的腳位
 const int servoPin10 = 10;  // 連接到第二個伺服馬達的腳位
