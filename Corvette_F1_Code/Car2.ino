@@ -81,7 +81,7 @@ void loop() {
   // 處理接收到的UDP封包
   receivePacket();
   // 控制伺服馬達脈衝寬度的邏輯
-  if (currentMillis < 10000 && !Stop) {
+  if (currentMillis < 1000000 && !Stop) {
     pulseWidth1 = 2225;//左前
     pulseWidth2 = 500;//右前
     pulseWidth3 = 2500;//左後
