@@ -77,10 +77,10 @@ void loop() {
   receivePacket();
   // 控制伺服馬達脈衝寬度的邏輯
   if (currentMillis < 10000000 && !Stop) {
-    pulseWidth1 = 2225;//左前
-    pulseWidth2 = 500;//右前
-    pulseWidth3 = 2500;//左後
-    pulseWidth4 = 500;//右後
+    pulseWidth1 = 2400;//左前
+    pulseWidth2 = 670;//右前
+    pulseWidth3 = 2400;//左後
+    pulseWidth4 = 670;//右後
   }else {
     pulseWidth1 = 1500;
     pulseWidth2 = 1500;
@@ -159,4 +159,3 @@ void sendPacket(uint8_t *data, size_t dataSize) {
   udp.endPacket();
   Serial.println("封包發送到伺服器");
 }
-
