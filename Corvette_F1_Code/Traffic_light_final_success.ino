@@ -1,5 +1,5 @@
 /*  
-    2023/12/17   結合wifi 紅綠燈
+    2023/12/24   結合wifi 紅綠燈
     回傳通過否
 
  */
@@ -15,7 +15,7 @@ LiquidCrystal lcd(8, 9, 4, 5, 6, 7);
 int ledPin0 = 10; //R
 int ledPin1 = 2;  //G
 int ledPin2 = 11; //Y
-int block = 12;
+int block = 60;
 static unsigned int num;
 
 int status = WL_IDLE_STATUS;
@@ -158,8 +158,13 @@ void sendResponseToClient(int receivedInteger) {
   }else if(num<=6){   //綠燈
   response=true;
   }else{        //黃燈
-  if(block/receivedInteger - (num*-1+11) >= 0 )
+  if(block/receivedInteger > (num*-1+11)){
+        Serial.println(block/receivedInteger);
+        Serial.println((num*-1+11));
+        Serial.println(block/receivedInteger - (num*-1+11));
     response=false;
+    }
+
   else  
     response=true;
   
